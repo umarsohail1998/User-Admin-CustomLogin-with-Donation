@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style type="text/css">
+
+	@media (max-width: 768px) { 
+		.right-column{
+			margin-left: 0px;
+		}
+	}
+
+	@media (min-width: 768px) { 
+		.right-column{
+			margin-left: 20px;
+		}
+	}
+
+	.blog-post-container{
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.create-post-bar{
+		background-color: #fff;
+		margin-bottom:20px;
+	}
+
+	.left-column{
+		padding:0px;
+	}
+
+	.right-column{
+		padding:0px;
+	}
+	.lead{
+		font-size: 17px;
+	}
+</style>
+
+
+<!-- main content -->
+<div class="container">
+    <div style="border: 2px solid black;text-align: center">
+        <label for="Total" style= "font-size: 30px; font-weight: bold;">Total Donation: </label>
+        <p style ="font-size: 30px" name="Total"> ${{Total}}</p>
+    </div>
+    <br>
+    <div class="row">
+        <label for="username" style= "font-size: 30px; font-weight: bold;">Username: </label><pre>   </pre>
+        <p style ="font-size: 30px" name="username"> {{Username}}</p>
+    </div>
+
+    <div class="row">
+        <label for="email" style= "font-size: 30px; font-weight: bold;">Email: </label><pre>   </pre>
+        <p style ="font-size: 30px" name="email"> {{Email}}</p>
+    </div>
+    <div class="row">
+        <label for="donate" style= "font-size: 30px; font-weight: bold;">Donated: </label><pre>   </pre> 
+        <p style ="font-size: 30px" name="donate">${{Donate}}</p>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,47 @@
+pip install virtualenv
+virtualenv venv
+source mypython/bin/activate
+deactivate
+
+pip install django
+
+django-admin startproject PROJECTNAME
+python manage.py startapp APPNAME
+
+python manage.py runserver
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
+
+
+pip freeze
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
+python manage.py shell
+
+python manage.py loaddata myapp.json
+
+python manage.py collectstatic
+
+
+<!-- <a class="p-2 text-dark" href="{% url 'home' %}">Home</a> -->
+
+
+
+data= { CSRF: getCSRFTokenValue(), 'amount': amount}
+                    $.post("{% url 'Donate' %}", function(data, status){
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+
+
+
+
+
+                    
+                    $.post("{% url 'Donate' %}", function(data,status){
+                        window.open("{% url 'home' %}")
+                        alert("Data: " + data + "\nStatus: " + status);
+                    })
