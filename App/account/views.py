@@ -1,7 +1,7 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from .models import Account
+from .models import Account, formviewtable
 
 from account.forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
 # from blog.models import BlogPost
@@ -19,6 +19,15 @@ def donate_view(request):
 	    # return render(request, 'account/home.html')
     	return render(request, 'account/Donate.html')
 
+def forms(request):
+    if request.POST:
+        dt = dict(request.POST)
+        obj = formviewtable(email = request.user.email, fullname = dt['fullname'][0], fathername = dt['fathername'][0], address = dt['address'][0], work = dt['work'][0], ROW = dt['ROW'][0])
+        obj.save()
+        return redirect('home')
+    else:
+	    return render(request, 'account/form.html')
+        
 def home(request):
     context = {}
     context['Username'] = request.user.username
@@ -29,6 +38,16 @@ def home(request):
     for x in lt:
         total += x.Donate
     context['Total'] = total
+    obj = formviewtable.objects.filter(email = request.user.email)
+    if len(obj):
+        context['email'] = obj[0].email
+        context['fullname'] = obj[0].fullname
+        context['fathername'] = obj[0].fathername
+        context['address'] = obj[0].address
+        context['work'] = obj[0].work
+        context['ROW'] = obj[0].ROW
+		
+    # print(context)
     return render(request, 'account/home.html', context = context)
 
 def registration_view(request):

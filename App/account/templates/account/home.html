@@ -59,8 +59,44 @@
         <p style ="font-size: 30px" name="donate">${{Donate}}</p>
     </div>
 </div>
+<br><br>
+<p></p>
+{% if fullname %}
+
+<pre>                ------------------------------------- Form -----------------------------------------------------</pre>
+<div class="container">
+
+    
+    <div class="row">
+        <label for="username" style= "font-size: 30px; font-weight: bold;">Full Name: </label><pre>   </pre>
+        <p style ="font-size: 30px" name="username"> {{fullname}}</p>
+    </div>
+
+    <div class="row">
+        <label for="email" style= "font-size: 30px; font-weight: bold;">Email: </label><pre>   </pre>
+        <p style ="font-size: 30px" name="email"> {{email}}</p>
+    </div>
+    <div class="row">
+        <label for="Father Name" style= "font-size: 30px; font-weight: bold;">Father Name: </label><pre>   </pre> 
+        <p style ="font-size: 30px" name="fathername">{{fathername}}</p>
+    </div>
+    <div class="row">
+        <label for="Address" style= "font-size: 30px; font-weight: bold;">Address: </label><pre>   </pre> 
+        <p style ="font-size: 30px" name="address">{{address}}</p>
+    </div>
+    <div class="row">
+        <label for="Work" style= "font-size: 30px; font-weight: bold;">Work: </label><pre>   </pre> 
+        <p style ="font-size: 30px" name="Work">{{work}}</p>
+    </div>
+    <div class="row">
+        <label for="ROW" style= "font-size: 30px; font-weight: bold;">ROW: </label><pre>   </pre> 
+        <p style ="font-size: 30px" name="ROW">{{ROW}}</p>
+    </div>
+</div>
+
+{% endif %}
+
 
 {% endblock content %}
-
 
 

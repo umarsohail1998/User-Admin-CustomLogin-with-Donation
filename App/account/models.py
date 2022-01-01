@@ -61,7 +61,16 @@ class Account(AbstractBaseUser):
 
 
 
-
+class formviewtable(models.Model):
+    email = models.EmailField(unique=True, default=None)
+    fullname = models.CharField(max_length=100)
+    fathername = models.CharField(max_length=100)
+    address = models.CharField(max_length=1000)
+    work = models.CharField(max_length=100)
+    ROW=models.CharField(max_length=500)
+    
+    def __str__(self):
+        return self.fullname
 
 
 
